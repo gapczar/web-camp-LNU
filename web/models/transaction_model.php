@@ -1,5 +1,5 @@
 <?php
-	Class transaction_model extends Super{
+	Class Transaction_model extends Super{
 		public function __construct(){
 			parent::__construct();
 		}
@@ -8,14 +8,15 @@
 			
 			$password	=	$this->hash_pass( $password );
 			
-			$sql		=	"select id, username from tbl_users where username = :username and password: :password";
+			$sql		=	"select id,username,password from tbl_users where username=:uname and password=:upass";
 			
 			$query		=	$this->db->prepare($sql);
 			
-			$query->execute( array( ':username' => $username , ':password' => $password ));
-			
-			return $query->fetchAll(PDO::FETCH_ASSOC);
-			
+			$query->execute( array( ':uname' => $username , ':upass' => $password ));
+			$data = array();
+			$data['u_data'] = $query->fetchAll(PDO::FETCH_ASSOC);
+			$data['session_data'] = true;
+			return $data;
 		}
 		
 		private function hash_pass( $password ){

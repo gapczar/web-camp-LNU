@@ -2,7 +2,7 @@
 	Class Transaction_controller extends Super{
 		public function __construct(){
 			parent::__construct();
-			session_Start();
+			session_start();
 			$this->transact_model	=	$this->model('transaction');
 		}
 		public function login(){
@@ -11,14 +11,17 @@
 				$password	=	$_POST['password'];	
 				
 				$query_log	=	$this->transact_model->login( $username , $password);
-				
-				PRINT_R($query_log);
-				
-				if(!empty($query_log)){
-					foreach( $query_log as $key){
+				// print_r($query_log);
+				if(is_array($query_log)){
+					$udata = $query_log['u_data'];
+					$sess_data = $query_log['session_data'];
+					foreach( $udata as $key){
 						$_SESSION['userID']	=	$key['id'];
 						$_SESSION['username']	=	$key['username'];
+						$_SESSION['session_id'] = $key['password']."|".$key['id'];
 					}
+					$_SESSION['is_login'] = $sess_data;
+					echo json_encode($query_log);
 				}else{
 					echo "Authentication Not Match";
 					exit();
@@ -43,7 +46,9 @@
 		public function logout(){
 			unset($_SESSION['userID']);
 			unset($_SESSION['username']);
+			unset($_SESSION['session_id']);
 			session_destroy();
+			header("location:".base_url."home");
 		}
 	}
 ?>

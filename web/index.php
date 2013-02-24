@@ -28,4 +28,6 @@
 	define('base_url', $base_url);
 
 	require_once(GLOBALS."Super.class.php");
+	require_once(CONTROLLERS."home_controller.php");
+
 	require_once(GLOBALS."URI.class.php");
