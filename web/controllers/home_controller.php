@@ -10,4 +10,8 @@ class Home_controller extends Super
 	{
 		echo "this is the index.";
 	}
+	public function profile()
+	{
+		echo "this is my profile.";
+	}
 }
