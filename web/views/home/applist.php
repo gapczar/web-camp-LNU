@@ -1,4 +1,4 @@
-<?php include("header.php"); ?>
+
 				<div class="navbar">
 					<div class="navbar-inner">
 						<a href="" class="brand">LNU</a>
@@ -22,4 +22,3 @@
 						</table>
 					</center>
 				</div>
-<?php include("footer.php"); ?>

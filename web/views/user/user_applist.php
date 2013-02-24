@@ -1,12 +1,11 @@
-<?php include("header.php"); ?>
 				<div class="navbar">
 					<div class="navbar-inner">
 						<a href="" class="brand">Welcome Kim</a>
 						<ul class="nav">
-							<li><a href="home_user.php">Home</a></li>
-							<li class="active"><a href="user_applist.php">App list</a></li>
-							<li><a href="user_top5.php">My Top 5</a></li>
-							<li><a href="">Logout</a></li>
+							<li><a href="<?php echo base_url; ?>home	/profile">Home</a></li>
+							<li class="active"><a href="<?php echo base_url; ?>home/app_list">App list</a></li>
+							<li><a href="<?php echo base_url; ?>home/top5">My Top 5</a></li>
+							<li><a href="<?php echo base_url; ?>transaction/logout">Logout</a></li>
 						</ul>
 					</div>
 				</div><!--end of navbar-->
@@ -16,6 +15,7 @@
 						<table class="table">
 							<tr><th>Icon</th><th>App Name</th><th>Action</th></tr>
 							<?php
+								$con = new PDO("mysql: host=localhost; dbname=poll","root","root");
 								$q = $con->prepare("SELECT * FROM tbl_app_info ORDER BY id");
 								$q->execute();
 								$row = $q->fetchAll(PDO::FETCH_ASSOC);
@@ -37,7 +37,7 @@
 										$btn=0;
 									}
 									?>
-									<tr><td><img src="images/<?php echo $rr['icon']; ?>" width=50 /></td><td><?php echo $rr['name']; ?></td>
+									<tr><td><img src="<?php echo base_url;?>images/<?php echo $rr['icon']; ?>" width=50 /></td><td><?php echo $rr['name']; ?></td>
 									<td>
 										<input type='button' value="Vote" id="btn<?php echo $rr['id']; ?>" class="rating_button btn <?php echo $btn1; ?>" onClick="rate(<?php echo $rr['id']; ?>)"/> 
 										
@@ -50,4 +50,3 @@
 					</center>
 				</div>
 			</div>
-<?php include("footer.php"); ?>

@@ -26,7 +26,6 @@
 			
 			return md5($pass1.$pass2);
 		}
-		
 		public function signIn( $username = null, $password = null, $email = null ){
 			
 			$sql	=	"INSERT into tbl_users values(:username,:password,:email)";

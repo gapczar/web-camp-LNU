@@ -1,13 +1,13 @@
-<<<<<<< HEAD
+
 function rate(id){
-	$.post("user_func.php", {"app_id": id}, function(output){
+	$.post(base_url+"transaction/voteItem", {"app_id": id}, function(output){
 		if(output==1){
 			$("#btn"+id).addClass("btn-primary");
 		}else{
 			alert(output);
 		}
 	});
-=======
+}
 function login(me,e)
 {
     e.preventDefault();
@@ -34,5 +34,4 @@ function login(me,e)
             }
         }
     });
->>>>>>> 7d5dafe9624b33c95d3fabd10e30ca557a7ca7ed
 }

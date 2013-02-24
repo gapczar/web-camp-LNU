@@ -15,11 +15,33 @@ class Home_controller extends Super
 	}
 	public function index()
 	{
+		$this->login();
+	}
+	public function applist()
+	{
 			$data = array(
-				'content'=>'frontend'
+				'content'=>'home/applist'
 			);
 
 			$this->view("temp/content", $data);
+	}
+	public function app_list()
+	{
+		$data = array(
+			'content'=>'user/user_applist'
+		);
+
+		$this->view("temp/content", $data);
+
+	}
+	public function top5()
+	{
+		$data = array(
+			'content'=>'user/user_top5'
+		);
+
+		$this->view("temp/content", $data);
+
 	}
 	public function profile()
 	{

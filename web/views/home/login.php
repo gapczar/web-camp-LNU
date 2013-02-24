@@ -4,7 +4,7 @@
 		<a href="" class="brand">LNU</a>
 		<ul class="nav">
 			<li class="active"><a href="/">Home</a></li>
-			<li><a href="applist.php">App list</a></li>
+			<li><a href="<?php echo base_url;?>home/applist">App list</a></li>
 		</ul>
 	</div>
 </div><!--end of navbar-->

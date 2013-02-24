@@ -27,12 +27,7 @@
 					<a href="<?php echo base_url;?>home/login">Login</a> |
 					<a href="<?php echo base_url;?>home/register">Register</a>
 				</nav>
-				<nav>
-					<a href="">FAQ</a> | 
-					<a href="">Forms</a> | 
-					<a href="">Directory</a> | 
-					<a href="">About</a>
-				</nav>
+				<div style="overflow: auto;clear: both;"></div>
 			</div><!--end of top_content-->
 			<div id="banner">
 				<div id="myCarousel" class="carousel slide">

@@ -3,9 +3,9 @@
 					<div class="navbar-inner">
 						<a href="" class="brand">Welcome <?php echo ucfirst($_SESSION['username']); ?></a>
 						<ul class="nav">
-							<li class="active"><a href="home_user.php">Home</a></li>
-							<li><a href="user_applist.php">App list</a></li>
-							<li><a href="user_top5.php">My Top 5</a></li>
+							<li class="active"><a href="<?php echo base_url; ?>home	/profile">Home</a></li>
+							<li><a href="<?php echo base_url; ?>home/app_list">App list</a></li>
+							<li><a href="<?php echo base_url; ?>home/top5">My Top 5</a></li>
 							<li><a href="<?php echo base_url; ?>transaction/logout">Logout</a></li>
 						</ul>
 					</div>

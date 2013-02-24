@@ -1,12 +1,12 @@
-<?php include("header.php"); ?>
+
 				<div class="navbar">
 					<div class="navbar-inner">
 						<a href="" class="brand">Welcome Kim</a>
 						<ul class="nav">
-							<li><a href="home_user.php">Home</a></li>
-							<li><a href="user_applist.php">App list</a></li>
-							<li class="active"><a href="myTop5.php">My Top 5</a></li>
-							<li><a href="">Logout</a></li>
+							<li><a href="<?php echo base_url; ?>home	/profile">Home</a></li>
+							<li><a href="<?php echo base_url; ?>home/app_list">App list</a></li>
+							<li class="active"><a href="<?php echo base_url; ?>home/top5">My Top 5</a></li>
+							<li><a href="<?php echo base_url; ?>transaction/logout">Logout</a></li>
 						</ul>
 					</div>
 				</div><!--end of navbar-->
@@ -17,6 +17,7 @@
 						</form>
 						<ul class="nav nav-tab nav-stacked top5List">
 								<?php
+									$con = new PDO("mysql: host=localhost; dbname=poll","root","root");
 									$q = $con->prepare("SELECT * FROM tbl_rate WHERE user_id=:user");
 									$q->bindParam(":user", $_SESSION['id'], PDO::PARAM_STR);
 									$q->execute();
@@ -33,7 +34,7 @@
 										}
 										?>
 											<li>
-												<div class="span3"><img src="images/<?php echo $img; ?>" width="100" /></div>
+												<div class="span3"><img src="<?php echo base_url;?>images/<?php echo $img; ?>" width="100" /></div>
 												<a href="">
 													<h4><?php echo $name; ?></h4>
 													<p>This is a description  This is a description  This is a description  This is a description  This is a description </p>
@@ -47,4 +48,3 @@
 					</center>
 				</div>
 			</div>
-<?php include("footer.php"); ?>
