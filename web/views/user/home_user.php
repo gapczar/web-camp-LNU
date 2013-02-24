@@ -1,3 +1,4 @@
+<?php include("header.php"); ?>
 				<div class="navbar">
 					<div class="navbar-inner">
 						<a href="" class="brand">Welcome Kim</a>
@@ -31,48 +32,64 @@
 						</div>
 						<div class="span7 white-bg div-padding glow-effect-shadow round-edges">
 							<i class="icon-star"></i> <span style="font-size:20px;font-weight:bold;color:gold;">Top 5 Apps</span><hr />
-							<div>
-								<div>
-									<ul class="nav nav-tab nav-stacked top5List">
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-									</ul>
-						</div>
-					</div>
+							<?php
+								$q = $con->prepare("SELECT * FROM tbl_rate WHERE user_id=:user");
+								$q->bindParam(":user", $_SESSION['id'], PDO::PARAM_STR);
+								$q->execute();
+								if($q->rowCount()==5){
+									
+									?>
+										<div>
+											<div>
+												<ul class="nav nav-tab nav-stacked top5List">
+													<li>
+														<div class="span3"><img src="dsf" width="100" /></div>
+														<a href="">
+														
+															<h4>App</h4>
+															<p>This is a description This is a description This is a description This is a description</p>
+													</a></li>
+													<li>
+														<div class="span3"><img src="dsf" width="100" /></div>
+														<a href="">
+														
+															<h4>App</h4>
+															<p>This is a description This is a description This is a description This is a description</p>
+													</a></li>
+													<li>
+														<div class="span3"><img src="dsf" width="100" /></div>
+														<a href="">
+														
+															<h4>App</h4>
+															<p>This is a description This is a description This is a description This is a description</p>
+													</a></li>
+													<li>
+														<div class="span3"><img src="dsf" width="100" /></div>
+														<a href="">
+														
+															<h4>App</h4>
+															<p>This is a description This is a description This is a description This is a description</p>
+													</a></li>
+													<li>
+														<div class="span3"><img src="dsf" width="100" /></div>
+														<a href="">
+														
+															<h4>App</h4>
+															<p>This is a description This is a description This is a description This is a description</p>
+													</a></li>
+												</ul>
+											</div>
+										</div>
+									<?php
+								}else{
+									?>
+										<div class="alert alert-warning">You need to complete your top 5 in order to view this</div>
+									<?php
+								}
+							?>
+							
 				</div>
 			</div>
 		</div>
 	</div>
+<?php include("footer.php"); ?>

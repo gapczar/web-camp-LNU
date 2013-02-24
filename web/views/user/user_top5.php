@@ -16,41 +16,33 @@
 							<input type='text' style="border-radius:100px;padding:5px" placeholder="Search..." />
 						</form>
 						<ul class="nav nav-tab nav-stacked top5List">
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
+								<?php
+									$q = $con->prepare("SELECT * FROM tbl_rate WHERE user_id=:user");
+									$q->bindParam(":user", $_SESSION['id'], PDO::PARAM_STR);
+									$q->execute();
+									$row = $q->fetchAll(PDO::FETCH_ASSOC);
+									foreach($row as $rr){
+										$q2 = $con->prepare("SELECT * FROM tbl_app_info WHERE id=:app");
+										$q2->bindParam(":app", $rr['app_id'], PDO::PARAM_STR);
+										$q2->execute();
+										$row2 = $q2->fetchAll(PDO::FETCH_ASSOC);
+										foreach($row2 as $rr2){
+											$img = $rr2['icon'];
+											$name = $rr2['name'];
+											$desc = $rr2['desc'];
+										}
+										?>
+											<li>
+												<div class="span3"><img src="images/<?php echo $img; ?>" width="100" /></div>
+												<a href="">
+													<h4><?php echo $name; ?></h4>
+													<p>This is a description  This is a description  This is a description  This is a description  This is a description </p>
+											</a></li>
+										<?php
+									}
+								?>
+										
 											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
-										<li>
-											<div class="span3"><img src="dsf" width="100" /></div>
-											<a href="">
-											
-												<h4>App</h4>
-												<p>This is a description This is a description This is a description This is a description</p>
-										</a></li>
 									</ul>
 					</center>
 				</div>
