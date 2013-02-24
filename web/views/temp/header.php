@@ -5,6 +5,9 @@
 			<title>LNU top Mobile App</title>
 			<link rel="stylesheet" type='text/css' href="<?php echo base_url;?>bs/docs/assets/css/bootstrap.css" />
 			<link rel="stylesheet" type='text/css' href="<?php echo base_url;?>style.css" />
+			<script type="text/javascript">
+				var base_url = "<?php echo base_url; ?>";
+			</script>
 			<script type='text/javascript' src="<?php echo base_url;?>bs/docs/assets/js/jquery.js"></script>
 			<script type='text/javascript' src="<?php echo base_url;?>bs/docs/assets/js/bootstrap.js"></script>
 			<script type='text/javascript' src="<?php echo base_url;?>bs/docs/assets/js/bootstrap-carousel.js"></script>
@@ -20,6 +23,10 @@
 	<body>
 		<div class="container white-bg">
 			<div id="top_content">
+				<nav style="float: right;overflow: auto;margin-right: 10px;">
+					<a href="<?php echo base_url;?>home/login">Login</a> |
+					<a href="<?php echo base_url;?>home/register">Register</a>
+				</nav>
 				<nav>
 					<a href="">FAQ</a> | 
 					<a href="">Forms</a> | 

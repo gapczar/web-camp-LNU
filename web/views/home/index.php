@@ -1,4 +1,3 @@
-<?php include("header.php"); ?>
 				<div class="navbar">
 					<div class="navbar-inner">
 						<a href="" class="brand">LNU</a>
@@ -12,16 +11,6 @@
 					<div class="row-fluid">
 						<div class="span5">
 								<div></div>
-							<div class=" span12 white-bg div-padding glow-effect-shadow round-edges" style="margin-bottom:20px;">
-								<h4>Sign In</h4><hr />
-								<form>
-									<table style="width:100%">
-										<tr><td>Username: </td><td><input type='text' /></td></tr>
-										<tr><td>Password: </td><td><input type='password' /></td></tr>
-										<tr><td colspan=2 align=center><button class="btn btn-primary"><i class="icon-user icon-white"></i> Sign In</button></td></tr>
-									</table>
-								</form>
-							</div>
 							<div class="span12 white-bg div-padding glow-effect-shadow round-edges">
 								<h4>Regsiter</h4><hr />
 								<form>
@@ -46,4 +35,3 @@
 					</div>
 				</div>
 			</div>
-<?php include("footer.php"); ?>

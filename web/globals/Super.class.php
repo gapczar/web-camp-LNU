@@ -18,7 +18,7 @@
 			if($model_file != null)
 			{
 				require_once(MODELS.$model_file.$this->model_suffix.'.php');
-				$mymodel = ucfirst($model_file).$thide->model_suffix;
+				$mymodel = ucfirst($model_file).$this->model_suffix;
 				$model_instance = new $mymodel;
 				return $model_instance;
 
