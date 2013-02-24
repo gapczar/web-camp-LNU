@@ -8,10 +8,17 @@ class Home_controller extends Super
 	}
 	public function index()
 	{
-		echo "this is the index.";
+		$data = array(
+			'content'=>'frontend'
+		);
+
+		$this->view("temp/content", $data);
 	}
 	public function profile()
 	{
-		echo "this is my profile.";
+		$data = array(
+			'content'	=>	'user/home_user'
+		);
+		$this->view("temp/content", $data);
 	}
 }

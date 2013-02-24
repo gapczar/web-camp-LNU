@@ -28,7 +28,7 @@
 		{
 			if($data != null){
 				$this->data = $data;
-				$data_obj = gey_object_vars($this);
+				$data_obj = get_object_vars($this);
 				$data_ = $data_obj['data'];
 				foreach($data_ as $obj_vars=>$obj_val1)
 				{
@@ -45,19 +45,15 @@
 					}
 				}
 			}
-			if($view_file != null)
+			if(file_exists(VIEWS.$view_file.".php")){
+
+				require_once(VIEWS.$view_file.".php");
+			} else {
+				exit("File not found!");
+			}
+			if($data!=null)
 			{
-				if(is_array($view_file))
-				{
-					foreach($view_file as $view_path)
-					{
-						require_once(VIEWS.$view_path.'.php');
-					}
-				}
-				if(is_string($view_file))
-				{
-					require_once(VIEWS.$view_file.'.php');
-				}
+				return $obj_vars;
 			}
 		}
 	}
