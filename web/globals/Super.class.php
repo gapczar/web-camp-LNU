@@ -6,10 +6,10 @@
 
 		public function __construct()
 		{
-			
+			require_once(GLOBALS.'Database.class.php');
 			require_once(GLOBALS.'Security.class.php');
 			require_once(GLOBALS.'File_manager.class.php');
-			
+			$this->db = new Database;
 			$this->sec = new Security;
 			$this->file = new File_manager;
 		}
