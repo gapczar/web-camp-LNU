@@ -7,8 +7,8 @@
 		public function __construct()
 		{
 			if(array_key_exists("REQUEST_URI", $_SERVER)){
-				$request = str_replace("/","",$_SERVER['REQUEST_URI']);
-				if(array_key_exists('QUERY_STRING', $_SERVER) && !empty($_SERVER['QUERY_STRING']))
+				$request = substr($_SERVER['REQUEST_URI'],1);
+				if(strpos($request, "?"))
 				{
 					$qs = strpos($request, "?");
 					$qs = substr($request,0,$qs);
@@ -34,14 +34,15 @@
 				$this->fetch_class($def_con);
 				$this->fetch_method();
 			} else {
-
 				if(array_key_exists(0, $url))
 				{
 					require_once(CONTROLLERS.$url[0].$this->class_suffix.'.php');
 					$this->fetch_class($url[0]);
-					if(array_key_exists(1,$url[1])){
+					if(array_key_exists(1, $url))
+					{
 						$this->fetch_method($url[1]);
-						if(array_key_exists(2,$url)){
+						if(array_key_exists(2, $url))
+						{
 							$this->fetch_param($url[1], $url[2]);
 						}
 					} else {
