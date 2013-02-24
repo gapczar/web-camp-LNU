@@ -1,14 +1,10 @@
 <?php
-	Class Database extends PDO(){
-		private $host	=	'localhost';
-		private $dbname	=	'poll';
-		private	$dbuser	=	'';
-		private	$dbpass	=	'';
+	Class Database extends PDO{
+
 		public function __construct(){
-			$this->$dsn	=	"mysql:host=".$this->host."; dbname=".$this->dbname."";
-			parent::__construct($this->dsn,$this->dbname,$this->dbpass);
+
+			parent::__construct("mysql:host=localhost;dbname=poll","root","root");
 			try{
-				$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}Catch(PDOException $e){
 				echo $e->errorMessage();
 			}
