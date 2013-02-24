@@ -1,4 +1,3 @@
-<?php include("header.php"); ?>
 				<div class="navbar">
 					<div class="navbar-inner">
 						<a href="" class="brand">Welcome Kim</a>
@@ -77,4 +76,3 @@
 			</div>
 		</div>
 	</div>
-<?php include("footer.php"); ?>
